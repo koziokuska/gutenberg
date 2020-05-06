@@ -14,6 +14,7 @@ import {
 	RichText,
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
+import { ToolbarGroup } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -33,12 +34,14 @@ function HeadingEdit( {
 	return (
 		<>
 			<BlockControls>
-				<HeadingLevelToolbar
-					selectedLevel={ level }
-					onChange={ ( newLevel ) =>
-						setAttributes( { level: newLevel } )
-					}
-				/>
+				<ToolbarGroup>
+					<HeadingLevelToolbar
+						selectedLevel={ level }
+						onChange={ ( newLevel ) =>
+							setAttributes( { level: newLevel } )
+						}
+					/>
+				</ToolbarGroup>
 				<AlignmentToolbar
 					value={ align }
 					onChange={ ( nextAlign ) => {

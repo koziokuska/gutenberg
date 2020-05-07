@@ -6,12 +6,12 @@ on:
 
 jobs:
   build:
-    runs-on: macos-10.15
+    runs-on: macos-latest
     
     steps:
     - uses: actions/checkout@v2
 
-    - name: Cache npm
+    - name: Restore npm cache
       uses: actions/cache@v1
       with:
         path: ~/.npm
@@ -28,13 +28,13 @@ jobs:
     - name: Prepare build cache key
       run: find package-lock.json packages/react-native-editor/ios packages/react-native-aztec/ios packages/react-native-bridge/ios -type f -print0 | sort -z | xargs -0 shasum | tee ios-checksums.txt
 
-    - name: Cache build
+    - name: Restore build cache
       uses: actions/cache@v1
       with:
         path: packages/react-native-editor/ios/build/gutenberg/Build/Products/Release-iphonesimulator/GutenbergDemo.app
         key: ${{ runner.os }}-ios-build-${{ hashFiles('ios-checksums.txt') }}
     
-    - name: Cache Pods
+    - name: Restore pods cache
       uses: actions/cache@master
       with:
         path: |

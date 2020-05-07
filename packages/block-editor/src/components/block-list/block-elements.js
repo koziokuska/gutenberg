@@ -1,3 +1,8 @@
+/**
+ * WordPress dependencies
+ */
+import { BlockQuotation } from '@wordpress/primitives';
+
 const ELEMENTS = [
 	'p',
 	'div',
@@ -18,6 +23,7 @@ const ELEMENTS = [
 	'aside',
 	'footer',
 	'main',
+	BlockQuotation,
 ];
 
 export default ELEMENTS;

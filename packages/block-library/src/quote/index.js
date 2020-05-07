@@ -23,6 +23,9 @@ export const settings = {
 		'Give quoted text visual emphasis. "In quoting others, we cite ourselves." — Julio Cortázar'
 	),
 	icon,
+	supports: {
+		lightBlockWrapper: true,
+	},
 	keywords: [ __( 'blockquote' ), __( 'cite' ) ],
 	example: {
 		attributes: {
